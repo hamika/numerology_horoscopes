@@ -1,0 +1,14 @@
+<% @numbers.each do |number| %>
+  <h4>
+    <%= number.name %>さんの生年月日: <i><%= number.year %>年<%= number.month %>月<%= number.day %>日です！</i>
+  </h4>
+  <h4>
+    <%= number.name %>さんの誕生数 (Life Path Number)は<i><%= number.life_path %></i> です！
+  </h4>
+  <h4>
+    <%= number.name %>さんの未来数 (Challenge Number)は<i><%= number.challenge %></i> です！
+  </h4>
+  <h4>
+    <%= number.name %>さんの過去数 (Birthday Number)は<i><%= number.birthday %></i> です！
+  </h4>
+<% end %>

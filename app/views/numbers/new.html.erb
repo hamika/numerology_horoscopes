@@ -1,0 +1,45 @@
+<h1>数秘術</h1>
+
+<%= form_with(model: @numbers, url: your_number_path(@numbers), method: :get, skip_enforcing_utf8: true) do |form| %>
+  <div style="display:inline-flex">
+    <% @numbers.year = Date.today.year - 27 %>
+    <% @numbers.month = Date.today.month %>
+    <% @numbers.day = Date.today.day %>
+    <h4>名前:&nbsp;<%= form.text_field :name %></h4>
+    &nbsp; &nbsp;
+    <h4>生年月日:&nbsp;
+      <%= form.select :year, ((Date.today.year - 108)..(Date.today.year + 27)).to_a %> 年
+      <%= form.select :month, (1..12).to_a %> 月
+      <%= form.select :day, (1..31).to_a %> 日
+    </h4>
+    &nbsp; &nbsp;
+  </div>
+  <h3>オプション</h3>
+  <% Number::MASTER_NUMBERS.each do |master_number| %>
+    <div style="display:inline-flex">
+      <%= form.label "誕生数の結果に#{master_number}を含めない" %>
+      <%= form.check_box(:life_path_mn, { multiple: true }, master_number, nil) %>
+    <%# </div> %>
+    <%# <div> %>
+      <%= form.label "未来数の結果に#{master_number}を含めない" %>
+      <%= form.check_box(:challenge_mn, { multiple: true }, master_number, nil) %>
+    <%# </div> %>
+    <%# <div> %>
+      <%= form.label "過去数の結果に#{master_number}を含めない" %>
+      <%= form.check_box(:birthday_mn, { multiple: true }, master_number, nil) %>
+    </div>
+  <% end %>
+  <div><%= form.submit %></div>
+<% end %>
+
+
+
+
+
+  <%# <div> %>
+    <%# Number::MASTER_NUMBERS.each do |ytt| %>
+      <%#= form.check_box("ymd[]", ytt) %>
+      <%#= form.label ytt %>
+      <%#= form.check_box(:ymd, { multiple: true }, ytt, nil) %>
+    <%# end %>
+  <%# </div> %>
