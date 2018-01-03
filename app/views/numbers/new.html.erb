@@ -19,12 +19,8 @@
     <div style="display:inline-flex">
       <%= form.label "誕生数の結果に#{master_number}を含めない" %>
       <%= form.check_box(:life_path_mn, { multiple: true }, master_number, nil) %>
-    <%# </div> %>
-    <%# <div> %>
       <%= form.label "未来数の結果に#{master_number}を含めない" %>
       <%= form.check_box(:challenge_mn, { multiple: true }, master_number, nil) %>
-    <%# </div> %>
-    <%# <div> %>
       <%= form.label "過去数の結果に#{master_number}を含めない" %>
       <%= form.check_box(:birthday_mn, { multiple: true }, master_number, nil) %>
     </div>
